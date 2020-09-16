@@ -6,7 +6,9 @@ const bcryptjs = require('bcryptjs');
 const session = require('express-session');
 const KnexSessionStore = require('connect-session-knex')(session);
 
-// Routers go here
+const usersRouter = require("../users/users-router");
+const authRouter = require("../auth/auth-router"); 
+const connection = require("../data/knex-config");
 
 const server = express();
 
