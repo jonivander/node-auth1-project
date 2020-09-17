@@ -1,5 +1,5 @@
 const express = require('express');
-const helmet = require('hemlet');
+const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
 const bcryptjs = require('bcryptjs'); 
@@ -35,7 +35,7 @@ const sessionConfig = {
 
 server.use(express.json(), helmet(), morgan('dev'), cors(), session(sessionConfig));
 
-server.use('/api/users', protected, userRouter);
+server.use('/api/users', protected, usersRouter);
 server.use('/api/auth', authRouter);
 
 server.use('/', (req, res) => {res.send('Server is up...')});

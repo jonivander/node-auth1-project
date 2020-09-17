@@ -11,7 +11,7 @@ router.post("/register", (req, res) => {
         const rounds = process.env.BCRYPT_ROUNDS || 4;
         const hash = bcryptjs.hashSync(userInfo.password, rounds);
         userInfo.password = hash;
-
+        console.log(userInfo);
         Users.add(userInfo)
             .then(inserted => {
                 res.status(201).json({ data: inserted })
@@ -72,6 +72,6 @@ function validateUser(user) {
 
 function validateCredentials(creds) {
     return creds.username && creds.password ? true : false; 
-}
+};
 
 module.exports = router; 
